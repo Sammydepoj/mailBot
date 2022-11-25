@@ -1,14 +1,12 @@
-import './App.css';
+import './App.module.css';
+import Header from './components/header/Header';
+import Verify from './pages/Verify';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p className='welcome'>
-          Welcome to <h1>mailBot</h1>
-        </p>
-        
-      </header>
+      <Header/>
+      <Verify />
     </div>
   );
 }
