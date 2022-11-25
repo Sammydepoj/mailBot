@@ -1,27 +1,41 @@
 import React from 'react'
 import './Variant.css'
+import { useAppContext } from '../../Context/Context'
 
 const Variant = () => {
+  const { data, proceedCsv } = useAppContext();
   return (
     <div>
       <div className='compose'>
         <div className='mailBody'>
           <div className='formInput'>
             <p>From:</p>
-            <input type="text" placeholder='markessin@gmail.com' />
+            <input type="text" placeholder='markessin@gmail.com' 
+              readOnly={true}
+              name="email"
+              defaultValue={data.email}
+            />
           </div>
 
           <div className='hrLine'></div>
 
           <div className='subjectInput'>
             <p>Subject:</p>
-            <input type="text" placeholder='The real estate project' />
+            <input type="text" placeholder='The real estate project' 
+              readOnly={true}
+              defaultValue={data.sub}
+              name="sub"
+            />
           </div>
 
           <div className='hrLine'></div>
 
           <div className='textarea'>
-            <textarea placeholder='Your message' />
+            <textarea placeholder='Your message' 
+              readOnly={true}
+              defaultValue={data.msg}
+              name="msg"
+            />
           </div>
         </div>
       </div>
@@ -47,7 +61,10 @@ const Variant = () => {
       </div>
 
       <div className='btn'>
-        <button>Proceed</button>
+        <button 
+        onClick={proceedCsv}
+        >
+        Proceed</button>
       </div>
     </div>
   )
