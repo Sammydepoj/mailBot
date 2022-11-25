@@ -47,3 +47,9 @@
     font-size: 12px;
     cursor: pointer;
 }
+
+.container > div > p {
+    color: rgb(255, 70, 70);
+    font-size: 13px;
+    margin-top: 10px;
+}
