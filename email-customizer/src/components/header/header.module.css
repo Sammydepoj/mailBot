@@ -1,7 +1,18 @@
-.header{
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.125rem;
-    line-height: 1.688rem;
+.header {
+    padding: 20px 0;
+    width: 90%;
+    margin: auto;
+}
+
+.header h2 {
+    color: #00237F;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.hrLine {
+    border-bottom: 1px solid #e2e1e1;
+    width: 100%;
+    margin-bottom: 3rem;
 }
