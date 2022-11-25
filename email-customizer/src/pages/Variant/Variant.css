@@ -1,3 +1,48 @@
+.variantComponent {
+    width: 90%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 3rem auto 0 auto;
+}
+
+.variant-btn {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.variant-btn > button {
+    background: transparent;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-weight: 500;
+    font-family: inherit;
+    width: 120px;
+    cursor: pointer;
+}
+
+.variant-btn > button.active {
+    border: 1px solid #000;
+}
+
+.variant-msg {
+    width: 70%;
+    background: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='7' ry='7' stroke='%23333' stroke-width='2' stroke-dasharray='18%2c 11%2c 24%2c 6' stroke-dashoffset='41' stroke-linecap='round'/%3e%3c/svg%3e");
+    border-radius: 7px;
+    padding: 15px;
+}
+
+.variant-msg > p {
+    font-size: 13px;
+    color: #00237f;
+}
+
+
+/*  */
 .mailBody {
     background: #fff;
     padding: 30px;
@@ -57,6 +102,9 @@
 
 .btn {
     text-align: right;
+    max-width: 600px;
+    margin: 1rem auto 0 auto;
+    padding-bottom: 2rem;
 }
 
 .btn > button {
@@ -69,4 +117,6 @@
     font-weight: 500;
     font-size: 12px;
     cursor: pointer;
+    width: 130px;
 }
+/*  */
