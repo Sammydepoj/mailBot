@@ -1,62 +1,67 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 // import Button from '../../components/Button/Button';
-import styles from './AddRecipients.module.css';
+import  './AddRecipients.css';
 import Modal from '../../components/SuccessModal/Modal'
+import { useAppContext } from '../../Context/Context';
 
 const AddRecipients = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const {handleFile, handleOnSubmit, selectedFile} = useAppContext()
 
-  return (
-    <div className={styles.uploadRecipients}>
-        <div className={styles.form}>
-            <div className={styles.addRecipient} style={{width:'100%'}}>
-                <label>Add Recipients:</label>
-                <div className={styles.uploadFile}> 
-                    <input className={styles.customSubmitBtn} style={{width:'100%'}}
-                    type='file'
-                    />
-                    <p>or</p>
-                    <p>Drag and drop csv here</p>
+    return (
+        <div className='uploadRecipients'>
+            <div className='form'>
+                <div className='addRecipient'>
+                    <label>Add Recipients:</label>
+                    <div className='uploadFile'>
+                        <div className='uploadInpt'>
+                            <input className='customSubmitBtn'
+                                type='file'
+                                onChange={handleFile}
+                            />
+                            {/* <img src="./assets/upload.svg" alt="" /> */}
+                        </div>
+                        <p>or</p>
+                        <p>Drag and drop csv here</p>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Recipient List:</label>
+
+                    <div className='recipientListContainer'>
+                        {/* <div className='recipientList'>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                </div> */}
+
+                        {/* <div className='recipientList'>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                    <p>markessien@hng.com <span>X</span></p>
+                </div> */}
+                    </div>
+                    <div className='proceedbtn'>
+                        <button
+                            className={selectedFile.name === undefined ? 'customSubmit disabled'  : 'customSubmit' }
+                            disabled={selectedFile.name === undefined}
+                            onClick={(e) => handleOnSubmit(e)}>
+                            Proceed
+                        </button>
+                    </div>
                 </div>
             </div>
-
-            <div style={{width:'100%'}}>
-                <label>Recipient List:</label>
-
-                    <div className={styles.recipientListContainer
-}>
-                <div className={styles.recipientList}>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                </div>
-                <div className={styles.recipientList}>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                </div>
-</div>
-                <div className={styles.proceedbtn}>
-                <button 
-                    className={styles.customSubmitBtn}
-                    // type='submit'
-                    onClick={()=>setIsOpen(true)}>
-                        Proceed
-                    </button>
-                </div>
-                
-            </div>
+            {isOpen && <Modal setIsOpen={setIsOpen} />}
         </div>
-        {isOpen && <Modal setIsOpen={setIsOpen} />}
-    </div>   
-  )
+    )
 }
 export default AddRecipients
