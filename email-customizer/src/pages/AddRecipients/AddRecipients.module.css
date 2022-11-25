@@ -1,6 +1,7 @@
 .uploadRecipients{
     width: 50%;
     margin: 0rem auto;
+    padding: 0rem;
 }
 .addRecipient{
     display: flex;
@@ -68,4 +69,68 @@
     justify-content: flex-end;
     margin-bottom: 1rem;
     padding-right: 3rem;
+}
+
+@media screen and (max-width:1107px){
+    .uploadRecipients{
+        width: 60%;
+    }
+}
+@media screen and (max-width:922px){
+    .uploadRecipients{
+        width: 80%;
+    }
+}
+@media screen and (max-width:692px){
+    .uploadRecipients{
+        width: 80%;
+    }
+    .recipientListContainer{
+        gap: 0rem;
+    }
+    .recipientList>p{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width:610px){
+    .addRecipient{
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    .recipientList>p{
+        font-size: 14px;
+    }
+    .proceedbtn{
+        padding-right: 0rem;
+    }
+}
+@media screen and (max-width:550px){
+    .addRecipient{
+        flex-direction: column;
+    }
+    .recipientList>p{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width:488px){
+    .uploadFile{
+        padding: 1rem;
+    }
+    .uploadRecipients{
+        width: 90%;
+    }
+    .recipientListContainer{
+        padding: 0.5rem;
+    }
+    .recipientList>p{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width:367px){
+    .recipientListContainer{
+        flex-direction: column;
+    }
+    .recipientList>p{
+        text-align: center;
+    }
 }

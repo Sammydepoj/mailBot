@@ -9,10 +9,10 @@ const AddRecipients = () => {
   return (
     <div className={styles.uploadRecipients}>
         <div className={styles.form}>
-            <div className={styles.addRecipient}>
+            <div className={styles.addRecipient} style={{width:'100%'}}>
                 <label>Add Recipients:</label>
                 <div className={styles.uploadFile}> 
-                    <input className={styles.customSubmitBtn}
+                    <input className={styles.customSubmitBtn} style={{width:'100%'}}
                     type='file'
                     />
                     <p>or</p>
@@ -20,7 +20,7 @@ const AddRecipients = () => {
                 </div>
             </div>
 
-            <div>
+            <div style={{width:'100%'}}>
                 <label>Recipient List:</label>
 
                     <div className={styles.recipientListContainer
