@@ -1,11 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
 // import Button from '../../components/Button/Button';
 import styles from './AddRecipients.module.css';
+import Modal from '../../components/SuccessModal/Modal'
 
 const AddRecipients = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className={styles.uploadRecipients}>
-        <form>
+        <div className={styles.form}>
             <div className={styles.addRecipient}>
                 <label>Add Recipients:</label>
                 <div className={styles.uploadFile}> 
@@ -19,7 +22,7 @@ const AddRecipients = () => {
 
             <div>
                 <label>Recipient List:</label>
-                
+
                     <div className={styles.recipientListContainer
 }>
                 <div className={styles.recipientList}>
@@ -42,14 +45,17 @@ const AddRecipients = () => {
                 </div>
 </div>
                 <div className={styles.proceedbtn}>
-                <input className={styles.customSubmitBtn}
-                    value='Proceed'
-                    type='submit'
-                />
+                <button 
+                    className={styles.customSubmitBtn}
+                    // type='submit'
+                    onClick={()=>setIsOpen(true)}>
+                        Proceed
+                    </button>
                 </div>
                 
             </div>
-        </form>
+        </div>
+        {isOpen && <Modal setIsOpen={setIsOpen} />}
     </div>   
   )
 }
