@@ -6,7 +6,7 @@ const Compose = () => {
     const { data, getLs, setLs, handleChange, handlegenerateVariant } = useAppContext()
     useEffect(() => {
         getLs();
-    }, [getLs])
+    }, [])
     
   return (
     <div className={styles.compose}>
@@ -37,7 +37,7 @@ const Compose = () => {
 
             <div className={styles.textarea}>
                 <textarea placeholder='Your message'
-                defaultvalue={data.msg} name="msg"
+                defaultValue={data.msg} name="msg"
                  onChange={(e) => {
                         handleChange(e);
                         setLs();
