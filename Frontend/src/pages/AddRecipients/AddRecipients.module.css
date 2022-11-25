@@ -1,0 +1,136 @@
+.uploadRecipients{
+    width: 50%;
+    margin: 0rem auto;
+    padding: 0rem;
+}
+.addRecipient{
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-between;
+    gap: 2rem;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.uploadFile{
+    border: 1px dashed #5F8BE0;
+    border-radius: 8px;
+    padding: 1rem auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    align-items: center;
+}
+.customSubmitBtn{
+    background: #00237f;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.5rem;
+    color: #FFFFFF;
+    border: none;
+    outline: 0;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.recipientListContainer{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid #CBC8C8;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem auto 1rem;
+}
+.recipientList>p{
+    background: rgba(95, 139, 224, 0.2);
+    border-radius: 24px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #00237F;
+    padding: 0.2rem 0.5rem;
+    margin: 0.5rem ;
+}
+.recipientList>p>span{
+    font-weight: bolder;
+    cursor: pointer;
+}
+.proceedbtn{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    padding-right: 3rem;
+}
+
+@media screen and (max-width:1107px){
+    .uploadRecipients{
+        width: 60%;
+    }
+}
+@media screen and (max-width:922px){
+    .uploadRecipients{
+        width: 80%;
+    }
+}
+@media screen and (max-width:692px){
+    .uploadRecipients{
+        width: 80%;
+    }
+    .recipientListContainer{
+        gap: 0rem;
+    }
+    .recipientList>p{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width:610px){
+    .addRecipient{
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    .recipientList>p{
+        font-size: 14px;
+    }
+    .proceedbtn{
+        padding-right: 0rem;
+    }
+}
+@media screen and (max-width:550px){
+    .addRecipient{
+        flex-direction: column;
+    }
+    .recipientList>p{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width:488px){
+    .uploadFile{
+        padding: 1rem;
+    }
+    .uploadRecipients{
+        width: 90%;
+    }
+    .recipientListContainer{
+        padding: 0.5rem;
+    }
+    .recipientList>p{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width:367px){
+    .recipientListContainer{
+        flex-direction: column;
+    }
+    .recipientList>p{
+        text-align: center;
+    }
+}

@@ -1,0 +1,72 @@
+.mailBody {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #e2e1e1;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.formInput, .subjectInput {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 15px;
+}
+
+.formInput > input::placeholder, .subjectInput > input::placeholder, .textarea > textarea::placeholder {
+    color: #d1d1d1;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
+
+.formInput > p, .subjectInput > p {
+    font-size: 14px;
+    color: #000;
+    font-weight: 400;
+}
+
+.formInput > input, .subjectInput > input {
+    border: 0;
+    width: 100%;
+    outline: 0;
+    font-weight: 600;
+}
+
+.subjectInput {
+    margin-top: 20px;
+}
+
+.hrLine {
+    border-bottom: 1px solid #e2e1e1;
+}
+
+.textarea {
+    margin-top: 3rem;
+}
+
+.textarea > textarea {
+    width: 100%;
+    height: 300px;
+    resize: none;
+    border: 0;
+    outline: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.btn {
+    text-align: right;
+}
+
+.btn > button {
+    background: #00237f;
+    padding: 10px 12px;
+    color: #fff;
+    border: 0;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    cursor: pointer;
+}
