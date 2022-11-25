@@ -35,3 +35,23 @@
     gap: 1rem;
     color: red;
 }
+@media screen and (max-width:770px){
+    .modal{
+        width:60%;
+    }
+}
+@media screen and (max-width:517px){
+    .modal{
+        width:70%;
+    }
+}
+@media screen and (max-width:440px){
+    .modal{
+        width:90%;
+    }
+}
+@media screen and (max-width:343px){
+    .modal{
+        padding: 1.5rem;
+    }
+}

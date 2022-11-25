@@ -53,3 +53,9 @@
     font-size: 13px;
     margin-top: 10px;
 }
+
+@media screen and (max-width:353px){
+    .container> div > h1 {
+        font-size: 28px;
+    }
+}

@@ -5,8 +5,6 @@ import {RiHome2Line } from 'react-icons/ri';
 
 import {BsCheckCircle } from 'react-icons/bs';
 
-
-
 const Modal = ({setIsOpen}) => {
   return (
     <div className ={styles.modalBackground}>
