@@ -1,0 +1,109 @@
+.uploadRecipients{
+    max-width: 600px;
+    margin: auto;
+}
+.addRecipient{
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-between;
+    gap: 2rem;
+    text-align: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5rem;
+}
+.uploadFile{
+    border-radius: 8px;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='14' ry='14' stroke='%235F8BE0FF' stroke-width='1' stroke-dasharray='7%2c 8%2c 12%2c 14' stroke-dashoffset='15' stroke-linecap='round'/%3e%3c/svg%3e");
+    padding: 20px;
+    width: 300px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.customSubmit {
+    padding: 10px 20px;
+    background: #00237F;
+    width: 160px;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.customSubmit.disabled {
+    background: #484646;
+}
+
+.customSubmitBtn {
+    color: transparent;
+    margin-bottom: 10px;
+  }
+  .customSubmitBtn::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .customSubmitBtn::before {
+    content: 'Select some files';
+    display: inline-block;
+    background: #00237F;
+    border-radius: 3px;
+    padding: 10px 17px;
+    outline: none;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .customSubmitBtn:hover::before {
+    border-color: #CBC8C8;
+  }
+  .customSubmitBtn:active {
+    outline: 0;
+  }
+
+  .uploadFile > p {
+    font-size: 15px;
+    color: #484646;
+    margin: 10px 0;
+  }
+
+.recipientListContainer{
+    display: flex;
+    width: 600px;
+    height: 400px;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid #CBC8C8;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem auto 1rem;
+}
+.recipientList>p{
+    background: rgba(95, 139, 224, 0.2);
+    border-radius: 24px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #00237F;
+    padding: 0.2rem 0.5rem;
+    margin: 0.5rem ;
+}
+.recipientList>p>span{
+    font-weight: bolder;
+    cursor: pointer;
+}
+.proceedbtn{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}

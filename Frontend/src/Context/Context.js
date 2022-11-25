@@ -13,7 +13,7 @@ export const useAppContext = () => {
 const ContextProvider = ({ children }) => {
     const navigate = useNavigate()
 
-    const [data, setData] = useState({email: '', sub: '', msg: ''})
+    const [data, setData] = useState({ email: '', sub: '', msg: '' })
     const [error, setError] = useState(false)
 
 
@@ -24,15 +24,44 @@ const ContextProvider = ({ children }) => {
     const getLs = () => {
         setData(JSON.parse(localStorage.getItem('data')))
     }
-    
+
     const handleChange = (e) => {
         let name = e.target.name;
         let value = e.target.value;
-        setData((prev) => ({...prev, [name]: value}))
-        
+        setData((prev) => ({ ...prev, [name]: value }))
+
     }
 
- 
+    // select file 
+    const [selectedFile, setSelectedFile] = useState({});
+    const [file, setFile] = useState()
+
+    const fileReader = new FileReader();
+
+    const handleFile = (e) => {
+        setSelectedFile(e.target.files[0]);
+        // console.log(e.target.files[0]);
+    }
+    console.log(selectedFile.name);
+    console.log(Object.keys(selectedFile).length);
+    
+    const handleOnSubmit = (e) => {
+        e.preventDefault(); 
+        if (selectedFile) {
+            fileReader.onload = function (event) {
+                const csvOutput = event.target.result;
+                setFile({file: csvOutput});
+                submitData({file: csvOutput})
+            };
+            fileReader.readAsDataURL(selectedFile);
+        }
+    };
+
+    const submitData = (d) => {
+        // post csv file
+        console.log('cli');
+    }
+
 
     const handlegenerateVariant = () => {
         navigate('/variant')
@@ -57,9 +86,10 @@ const ContextProvider = ({ children }) => {
     }
 
     // clear local storage after generating variant
-    
+
     const proceedCsv = () => {
         localStorage.clear()
+        navigate('/add-recipients')
     }
 
     return (
@@ -71,7 +101,10 @@ const ContextProvider = ({ children }) => {
             getLs,
             handleChange,
             handlegenerateVariant,
-            proceedCsv
+            proceedCsv,
+            handleFile,
+            handleOnSubmit,
+            selectedFile
         }}>
             {children}
         </AppContext.Provider>
