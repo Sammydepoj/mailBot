@@ -26,8 +26,8 @@ const Variant = () => {
             <p>Subject:</p>
             <input type="text" placeholder='The real estate project'
               readOnly={true}
-              defaultValue={data.sub}
-              name="sub"
+              defaultValue={data.subject}
+              name="subject"
             />
           </div>
 
@@ -36,8 +36,8 @@ const Variant = () => {
           <div className='textarea'>
             <textarea placeholder='Your message'
               readOnly={true}
-              defaultValue={data.msg}
-              name="msg"
+              defaultValue={data.body}
+              name="body"
             />
           </div>
         </div>

@@ -29,7 +29,7 @@ const Compose = () => {
                             setLs();
                         }}
                         defaultValue={data.sub}
-                        name="sub"
+                        name="subject"
                     />
                 </div>
 
@@ -37,7 +37,7 @@ const Compose = () => {
 
                 <div className={styles.textarea}>
                     <textarea placeholder='Your message'
-                        defaultValue={data.msg} name="msg"
+                        defaultValue={data.msg} name="body"
                         onChange={(e) => {
                             handleChange(e);
                             setLs();

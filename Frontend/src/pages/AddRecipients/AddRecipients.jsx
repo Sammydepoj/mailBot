@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AddRecipients.css';
 import Modal from '../../components/SuccessModal/Modal'
 import { useAppContext } from '../../Context/Context';
@@ -7,7 +7,11 @@ import close from './assets/close.svg'
 
 const AddRecipients = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { handleFile, handleOnSubmit, selectedFile } = useAppContext()
+    const { handleFile, handleOnSubmit, selectedFile, getLs } = useAppContext()
+
+    useEffect(() => {
+        getLs();
+      }, [])
 
     return (
         <div className='uploadRecipients'>
@@ -18,6 +22,8 @@ const AddRecipients = () => {
                         <div className='uploadInpt'>
                             <input className='customSubmitBtn'
                                 type='file'
+                                name='file'
+                                accept='.csv'
                                 onChange={handleFile}
                             />
                         </div>
@@ -54,10 +60,16 @@ const AddRecipients = () => {
                     <div className='proceedbtn'>
                         <button
                             className={selectedFile.name === undefined ? 'customSubmit disabled' : 'customSubmit'}
-                            disabled={selectedFile.name === undefined}
+                            // disabled={selectedFile.name === undefined}
                             onClick={(e) => handleOnSubmit(e)}>
                             Proceed
                         </button>
+                        {/* <button
+                            className={selectedFile.name === undefined ? 'customSubmit disabled' : 'customSubmit'}
+                            disabled={selectedFile.name === undefined}
+                            onClick={(e) => handleOnSubmit(e)}>
+                            Proceed
+                        </button> */}
                     </div>
                 </div>
             </div>
