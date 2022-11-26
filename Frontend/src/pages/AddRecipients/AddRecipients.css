@@ -42,31 +42,29 @@
 }
 
 .customSubmitBtn {
-    color: transparent;
+    width: 100%;
+    color: #00237F;
+    padding: 10px;
+    background: transparent;
+    border-radius: 10px;
+    border: 1px solid #00237F;
+    font-weight: 600;
     margin-bottom: 10px;
   }
-  .customSubmitBtn::-webkit-file-upload-button {
-    visibility: hidden;
-  }
-  .customSubmitBtn::before {
-    content: 'Select some files';
-    display: inline-block;
+
+  .customSubmitBtn::file-selector-button {
+    margin-right: 20px;
+    border: none;
     background: #00237F;
-    border-radius: 3px;
-    padding: 10px 17px;
-    outline: none;
-    white-space: nowrap;
-    user-select: none;
-    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
     color: #fff;
-    font-weight: 600;
-    font-size: 13px;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
   }
-  .customSubmitBtn:hover::before {
-    border-color: #CBC8C8;
-  }
-  .customSubmitBtn:active {
-    outline: 0;
+  
+  .customSubmitBtn::file-selector-button:hover {
+    background: #0d45a5;
   }
 
   .uploadFile > p {
@@ -76,7 +74,7 @@
   }
 
 .recipientListContainer{
-    display: flex;
+    /* display: flex; */
     width: 600px;
     height: 400px;
     gap: 1rem;
@@ -86,20 +84,28 @@
     padding: 1rem;
     margin: 1rem auto 1rem;
 }
-.recipientList>p{
-    background: rgba(95, 139, 224, 0.2);
-    border-radius: 24px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    color: #00237F;
-    padding: 0.2rem 0.5rem;
-    margin: 0.5rem ;
+
+.recipientList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-.recipientList>p>span{
-    font-weight: bolder;
+
+.recipientList > p{
+    background: rgba(95, 139, 224, 0.2);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #00237F;
+    margin: 10px;
+    padding: 6px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recipientList > p > img {
+    width: 15px;
     cursor: pointer;
 }
 .proceedbtn{

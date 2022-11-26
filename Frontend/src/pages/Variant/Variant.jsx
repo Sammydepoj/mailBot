@@ -1,16 +1,19 @@
-import React from 'react'
+import { React, useEffect } from 'react'
 import './Variant.css'
 import { useAppContext } from '../../Context/Context'
 
 const Variant = () => {
-  const { data, proceedCsv } = useAppContext();
+  const { data, proceedCsv, getLs } = useAppContext();
+  useEffect(() => {
+    getLs();
+  }, [])
   return (
     <div>
       <div className='compose'>
         <div className='mailBody'>
           <div className='formInput'>
             <p>From:</p>
-            <input type="text" placeholder='markessin@gmail.com' 
+            <input type="text" placeholder='markessin@gmail.com'
               readOnly={true}
               name="email"
               defaultValue={data.email}
@@ -21,7 +24,7 @@ const Variant = () => {
 
           <div className='subjectInput'>
             <p>Subject:</p>
-            <input type="text" placeholder='The real estate project' 
+            <input type="text" placeholder='The real estate project'
               readOnly={true}
               defaultValue={data.sub}
               name="sub"
@@ -31,7 +34,7 @@ const Variant = () => {
           <div className='hrLine'></div>
 
           <div className='textarea'>
-            <textarea placeholder='Your message' 
+            <textarea placeholder='Your message'
               readOnly={true}
               defaultValue={data.msg}
               name="msg"
@@ -61,10 +64,10 @@ const Variant = () => {
       </div>
 
       <div className='btn'>
-        <button 
-        onClick={proceedCsv}
+        <button
+          onClick={proceedCsv}
         >
-        Proceed</button>
+          Proceed</button>
       </div>
     </div>
   )

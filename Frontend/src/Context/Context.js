@@ -42,16 +42,15 @@ const ContextProvider = ({ children }) => {
         setSelectedFile(e.target.files[0]);
         // console.log(e.target.files[0]);
     }
-    console.log(selectedFile.name);
-    console.log(Object.keys(selectedFile).length);
-    
+    // console.log(selectedFile.name);
+
     const handleOnSubmit = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         if (selectedFile) {
             fileReader.onload = function (event) {
                 const csvOutput = event.target.result;
-                setFile({file: csvOutput});
-                submitData({file: csvOutput})
+                setFile({ file: csvOutput });
+                submitData({ file: csvOutput })
             };
             fileReader.readAsDataURL(selectedFile);
         }
@@ -59,7 +58,7 @@ const ContextProvider = ({ children }) => {
 
     const submitData = (d) => {
         // post csv file
-        console.log('cli');
+        // console.log('cli');
     }
 
 

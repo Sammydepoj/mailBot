@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-// import Button from '../../components/Button/Button';
-import  './AddRecipients.css';
+import './AddRecipients.css';
 import Modal from '../../components/SuccessModal/Modal'
 import { useAppContext } from '../../Context/Context';
 
+import close from './assets/close.svg'
+
 const AddRecipients = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const {handleFile, handleOnSubmit, selectedFile} = useAppContext()
+    const { handleFile, handleOnSubmit, selectedFile } = useAppContext()
 
     return (
         <div className='uploadRecipients'>
@@ -19,7 +20,6 @@ const AddRecipients = () => {
                                 type='file'
                                 onChange={handleFile}
                             />
-                            {/* <img src="./assets/upload.svg" alt="" /> */}
                         </div>
                         <p>or</p>
                         <p>Drag and drop csv here</p>
@@ -30,29 +30,30 @@ const AddRecipients = () => {
                     <label>Recipient List:</label>
 
                     <div className='recipientListContainer'>
-                        {/* <div className='recipientList'>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                </div> */}
-
-                        {/* <div className='recipientList'>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                    <p>markessien@hng.com <span>X</span></p>
-                </div> */}
+                        <div className='recipientList'>
+                            <p>markessien@hng.com
+                                <img src={close} alt="" />
+                            </p>
+                            <p>markessien@hng.com
+                                <img src={close} alt="close" />
+                            </p>
+                            <p>markessien@hng.com
+                                <img src={close} alt="close" />
+                            </p>
+                            <p>markessien@hng.com
+                                <img src={close} alt="close" />
+                            </p>
+                            <p>markessien@hng.com
+                                <img src={close} alt="close" />
+                            </p>
+                            <p>markessien@hng.com
+                                <img src={close} alt="close" />
+                            </p>
+                        </div>
                     </div>
                     <div className='proceedbtn'>
                         <button
-                            className={selectedFile.name === undefined ? 'customSubmit disabled'  : 'customSubmit' }
+                            className={selectedFile.name === undefined ? 'customSubmit disabled' : 'customSubmit'}
                             disabled={selectedFile.name === undefined}
                             onClick={(e) => handleOnSubmit(e)}>
                             Proceed
