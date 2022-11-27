@@ -34,87 +34,42 @@ const ContextProvider = ({ children }) => {
 
     // select file 
     const [selectedFile, setSelectedFile] = useState({});
-    // const [file, setFile] = useState()
 
-    const fileReader = new FileReader();
 
     const handleFile = (e) => {
         setSelectedFile(e.target.files[0]);
-        // console.log(e.target.files[0]);
     }
-    // console.log(selectedFile.name);
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        // if (selectedFile) {
-        //     fileReader.onload = function (event) {
-        //         const csvOutput = event.target.result;
-        //         setFile({ file: csvOutput });
-        //         console.log(csvOutput);
-        //         submitData({ file: csvOutput, data: data })
-        //     };
-        //     // fileReader.readAsDataURL(selectedFile);
-        // }
+        
         submitData({ selectedFile, data: data })
-        // console.log(selectedFile);
-        // console.log(data);
     };
 
-    // const handleOnSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (selectedFile) {
-    //         fileReader.onload = function (event) {
-    //             const csvOutput = event.target.result;
-    //             setFile({ file: csvOutput });
-    //             submitData({ file: csvOutput, data: data })
-    //         };
-    //         fileReader.readAsDataURL(selectedFile);
-    //     }
-    // };
-
-    // const submitData = async (csvData) => {
-    //     // post csv file
-    //     // const url = 'https://am0z31.deta.dev/upload';
-    //     console.log(csvData);
-    //     try {
-    //         // const res = await axios.post(url, {csvData})
-    //         // console.log(res);
-    //         // console.log(csvData);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    //     // console.log('cli');
-    // }
+  
     const submitData = async (selectedFile) => {
         // post csv file
         let bodyData = new FormData();
-
-        // console.log(selectedFile.selectedFile);
        
-        // bodyData.append('name', 'FILENAME')
         bodyData.append('file', selectedFile.selectedFile)
         bodyData.append('subject', data.subject)
         bodyData.append('body', data.body)
-
-        // console.log(bodyData);
-
-        // const url = 'https://am0z31.deta.dev/upload';
 
         await axios({
             method: "post",
             url: "https://am0z31.deta.dev/upload",
             data: bodyData,
-            withCredentials: false,
-            headers: { 
-                'Accept': 'application/json',
-                "Content-Type": "multipart/form-data" 
-            }
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "multipart/form-data",
+            },
           })
-          .then(res => console.log(res.data))
+          .then(res => {
+            console.log(res.data)
+            console.log(data);
+          })
           .catch(err => console.log(err))
-        // console.log(selectedFile);
       
-        // console.log('cli');
     }
 
 
