@@ -1,0 +1,115 @@
+.uploadRecipients{
+    max-width: 600px;
+    margin: auto;
+}
+.addRecipient{
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-between;
+    gap: 2rem;
+    text-align: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5rem;
+}
+.uploadFile{
+    border-radius: 8px;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='14' ry='14' stroke='%235F8BE0FF' stroke-width='1' stroke-dasharray='7%2c 8%2c 12%2c 14' stroke-dashoffset='15' stroke-linecap='round'/%3e%3c/svg%3e");
+    padding: 20px;
+    width: 300px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.customSubmit {
+    padding: 10px 20px;
+    background: #00237F;
+    width: 160px;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.customSubmit.disabled {
+    background: #484646;
+}
+
+.customSubmitBtn {
+    width: 100%;
+    color: #00237F;
+    padding: 10px;
+    background: transparent;
+    border-radius: 10px;
+    border: 1px solid #00237F;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .customSubmitBtn::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #00237F;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+  
+  .customSubmitBtn::file-selector-button:hover {
+    background: #0d45a5;
+  }
+
+  .uploadFile > p {
+    font-size: 15px;
+    color: #484646;
+    margin: 10px 0;
+  }
+
+.recipientListContainer{
+    /* display: flex; */
+    width: 600px;
+    height: 400px;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid #CBC8C8;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem auto 1rem;
+}
+
+.recipientList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.recipientList > p{
+    background: rgba(95, 139, 224, 0.2);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #00237F;
+    margin: 10px;
+    padding: 6px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recipientList > p > img {
+    width: 15px;
+    cursor: pointer;
+}
+.proceedbtn{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}

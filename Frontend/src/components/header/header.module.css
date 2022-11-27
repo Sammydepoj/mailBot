@@ -4,10 +4,11 @@
     margin: auto;
 }
 
-.header h2 {
+.header a {
     color: #00237F;
     font-weight: 700;
     font-size: 20px;
+    text-decoration: none;
     cursor: pointer;
 }
 
