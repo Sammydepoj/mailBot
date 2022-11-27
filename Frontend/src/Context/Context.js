@@ -1,4 +1,4 @@
-
+import axios from 'axios'
 import { createContext, useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom'
 
@@ -13,7 +13,7 @@ export const useAppContext = () => {
 const ContextProvider = ({ children }) => {
     const navigate = useNavigate()
 
-    const [data, setData] = useState({ email: '', sub: '', msg: '' })
+    const [data, setData] = useState({ email: '', subject: '', body: '' })
     const [error, setError] = useState(false)
 
 
@@ -34,7 +34,7 @@ const ContextProvider = ({ children }) => {
 
     // select file 
     const [selectedFile, setSelectedFile] = useState({});
-    const [file, setFile] = useState()
+    // const [file, setFile] = useState()
 
     const fileReader = new FileReader();
 
@@ -42,24 +42,79 @@ const ContextProvider = ({ children }) => {
         setSelectedFile(e.target.files[0]);
         // console.log(e.target.files[0]);
     }
-    console.log(selectedFile.name);
-    console.log(Object.keys(selectedFile).length);
-    
+    // console.log(selectedFile.name);
+
     const handleOnSubmit = (e) => {
-        e.preventDefault(); 
-        if (selectedFile) {
-            fileReader.onload = function (event) {
-                const csvOutput = event.target.result;
-                setFile({file: csvOutput});
-                submitData({file: csvOutput})
-            };
-            fileReader.readAsDataURL(selectedFile);
-        }
+        e.preventDefault();
+        // if (selectedFile) {
+        //     fileReader.onload = function (event) {
+        //         const csvOutput = event.target.result;
+        //         setFile({ file: csvOutput });
+        //         console.log(csvOutput);
+        //         submitData({ file: csvOutput, data: data })
+        //     };
+        //     // fileReader.readAsDataURL(selectedFile);
+        // }
+        submitData({ selectedFile, data: data })
+        // console.log(selectedFile);
+        // console.log(data);
     };
 
-    const submitData = (d) => {
+    // const handleOnSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (selectedFile) {
+    //         fileReader.onload = function (event) {
+    //             const csvOutput = event.target.result;
+    //             setFile({ file: csvOutput });
+    //             submitData({ file: csvOutput, data: data })
+    //         };
+    //         fileReader.readAsDataURL(selectedFile);
+    //     }
+    // };
+
+    // const submitData = async (csvData) => {
+    //     // post csv file
+    //     // const url = 'https://am0z31.deta.dev/upload';
+    //     console.log(csvData);
+    //     try {
+    //         // const res = await axios.post(url, {csvData})
+    //         // console.log(res);
+    //         // console.log(csvData);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    //     // console.log('cli');
+    // }
+    const submitData = async (selectedFile) => {
         // post csv file
-        console.log('cli');
+        let bodyData = new FormData();
+
+        // console.log(selectedFile.selectedFile);
+       
+        // bodyData.append('name', 'FILENAME')
+        bodyData.append('file', selectedFile.selectedFile)
+        bodyData.append('subject', data.subject)
+        bodyData.append('body', data.body)
+
+        // console.log(bodyData);
+
+        // const url = 'https://am0z31.deta.dev/upload';
+
+        await axios({
+            method: "post",
+            url: "https://am0z31.deta.dev/upload",
+            data: bodyData,
+            withCredentials: false,
+            headers: { 
+                'Accept': 'application/json',
+                "Content-Type": "multipart/form-data" 
+            }
+          })
+          .then(res => console.log(res.data))
+          .catch(err => console.log(err))
+        // console.log(selectedFile);
+      
+        // console.log('cli');
     }
 
 
@@ -88,7 +143,7 @@ const ContextProvider = ({ children }) => {
     // clear local storage after generating variant
 
     const proceedCsv = () => {
-        localStorage.clear()
+        // localStorage.clear()
         navigate('/add-recipients')
     }
 

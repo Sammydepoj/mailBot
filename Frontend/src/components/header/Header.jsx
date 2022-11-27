@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './header.module.css'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
     <>
       <div className={styles.header}>
-        <h2>MailBot</h2>
+        <Link to='/'>MailBot</Link>
       </div>
       <div className={styles.hrLine}></div>
     </>
