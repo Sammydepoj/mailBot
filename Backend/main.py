@@ -1,9 +1,18 @@
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi_mail import FastMail, MessageSchema, MessageType, ConnectionConfig
+from fastapi.middleware.cors import CORSMiddleware
 from io import BytesIO
 import pandas as pd
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 conf = ConnectionConfig(
