@@ -1,8 +1,8 @@
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi_mail import FastMail, MessageSchema, MessageType, ConnectionConfig
 from fastapi.middleware.cors import CORSMiddleware
-from io import BytesIO
-import pandas as pd
+from fastapi.responses import JSONResponse
+import csv, codecs
 
 app = FastAPI()
 
@@ -50,20 +50,16 @@ async def upload(
     file: UploadFile = File(...)
     ):
 
-    contents = file.file.read()
-    buffer = BytesIO(contents)
-    df = pd.read_csv(buffer)
-    buffer.close()
-    file.file.close()
-    emails = df.to_dict(orient='records')
-
+    csv_file = csv.DictReader(codecs.iterdecode(file.file, 'utf-8'))
+    
     email_list = []
 
-    for person in emails:
-        email_list.append(person['email'])
+    for row in csv_file:
+        email_list.append(row['email'])
+
 
     await send_email(email_list, body, subject)
     
-    return emails
+    return JSONResponse(email_list, 200)
 
 
