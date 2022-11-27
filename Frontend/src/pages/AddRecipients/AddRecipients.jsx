@@ -60,16 +60,10 @@ const AddRecipients = () => {
                     <div className='proceedbtn'>
                         <button
                             className={selectedFile.name === undefined ? 'customSubmit disabled' : 'customSubmit'}
-                            // disabled={selectedFile.name === undefined}
-                            onClick={(e) => handleOnSubmit(e)}>
-                            Proceed
-                        </button>
-                        {/* <button
-                            className={selectedFile.name === undefined ? 'customSubmit disabled' : 'customSubmit'}
                             disabled={selectedFile.name === undefined}
                             onClick={(e) => handleOnSubmit(e)}>
                             Proceed
-                        </button> */}
+                        </button>
                     </div>
                 </div>
             </div>
