@@ -16,6 +16,8 @@ const ContextProvider = ({ children }) => {
     const [data, setData] = useState({ email: '', subject: '', body: '' })
     const [error, setError] = useState(false)
 
+    const [mail, setMail] = useState([])
+
 
     const setLs = () => {
         localStorage.setItem('data', JSON.stringify(data))
@@ -65,11 +67,15 @@ const ContextProvider = ({ children }) => {
             },
           })
           .then(res => {
-            console.log(res.data)
-            console.log(data);
+            const csvMail = res.data
+            setMail(csvMail)
           })
           .catch(err => console.log(err))
       
+    }
+
+    const removeMail = (e) => {
+        e.target.remove()
     }
 
 
@@ -114,7 +120,9 @@ const ContextProvider = ({ children }) => {
             proceedCsv,
             handleFile,
             handleOnSubmit,
-            selectedFile
+            selectedFile, 
+            mail,
+            removeMail
         }}>
             {children}
         </AppContext.Provider>

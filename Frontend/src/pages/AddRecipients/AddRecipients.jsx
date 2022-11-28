@@ -7,11 +7,12 @@ import close from './assets/close.svg'
 
 const AddRecipients = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { handleFile, handleOnSubmit, selectedFile, getLs } = useAppContext()
+    const { handleFile, handleOnSubmit, selectedFile, getLs, mail, removeMail } = useAppContext()
+
 
     useEffect(() => {
         getLs();
-      }, [])
+    }, [])
 
     return (
         <div className='uploadRecipients'>
@@ -37,24 +38,18 @@ const AddRecipients = () => {
 
                     <div className='recipientListContainer'>
                         <div className='recipientList'>
-                            <p>markessien@hng.com
-                                <img src={close} alt="" />
-                            </p>
-                            <p>markessien@hng.com
-                                <img src={close} alt="close" />
-                            </p>
-                            <p>markessien@hng.com
-                                <img src={close} alt="close" />
-                            </p>
-                            <p>markessien@hng.com
-                                <img src={close} alt="close" />
-                            </p>
-                            <p>markessien@hng.com
-                                <img src={close} alt="close" />
-                            </p>
-                            <p>markessien@hng.com
-                                <img src={close} alt="close" />
-                            </p>
+                            {
+                                mail.length === 0 ?
+                                    <p>No mails to show </p> :
+                                    mail.map(mails => (
+                                        <p 
+                                        onClick={removeMail}
+                                        key={Math.floor(Math.random() * 200 - 1 + 1)}>
+                                            {mails}
+                                            <img src={close} alt="close" />
+                                        </p>
+                                    ))
+                            }
                         </div>
                     </div>
                     <div className='proceedbtn'>
